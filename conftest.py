@@ -17,10 +17,10 @@ def duck_duck_go_page():
 
 
 @pytest.fixture
-def not_too_long_random_chars():
+def not_too_long_random_digits():
     return "".join(random.choices(string.digits, k=500))
 
 
 @pytest.fixture
-def too_long_random_chars():
+def too_long_random_digits():
     return "".join(random.choices(string.digits, k=1000))
