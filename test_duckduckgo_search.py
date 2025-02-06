@@ -1,7 +1,7 @@
 from selene import browser, be, have
 
 
-def test_successful_search(duck_duck_go_page):
+def test_successful_search():
     browser.element('//input[@aria-label="Search with DuckDuckGo"]').should(
         be.blank
     ).type("Python").press_enter()
