@@ -1,7 +1,7 @@
 from selene import browser, be, have
 
 
-def test_successful_search(maximized_browser, duck_duck_go_page):
+def test_successful_search(duck_duck_go_page):
     browser.element('//input[@aria-label="Search with DuckDuckGo"]').should(
         be.blank
     ).type("Python").press_enter()
@@ -9,7 +9,7 @@ def test_successful_search(maximized_browser, duck_duck_go_page):
 
 
 def test_empty_search_results(
-    maximized_browser, duck_duck_go_page, not_too_long_random_digits
+    not_too_long_random_digits
 ):
     browser.element('//input[@aria-label="Search with DuckDuckGo"]').should(
         be.blank
@@ -17,7 +17,7 @@ def test_empty_search_results(
     browser.element("html").should(have.text("No results found"))
 
 
-def test_too_long_search(maximized_browser, duck_duck_go_page, too_long_random_digits):
+def test_too_long_search(duck_duck_go_page, too_long_random_digits):
     browser.element('//input[@aria-label="Search with DuckDuckGo"]').should(
         be.blank
     ).type(too_long_random_digits).press_enter()

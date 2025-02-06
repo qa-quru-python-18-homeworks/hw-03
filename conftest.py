@@ -4,14 +4,14 @@ import string
 from selene import browser
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="session", autouse=True)
 def maximized_browser():
     browser.driver.maximize_window()
     yield
     browser.quit()
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def duck_duck_go_page():
     browser.open("https://duckduckgo.com")
 
