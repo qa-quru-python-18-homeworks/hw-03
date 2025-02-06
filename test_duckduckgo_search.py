@@ -8,9 +8,7 @@ def test_successful_search():
     browser.element("html").should(have.text("Python.org"))
 
 
-def test_empty_search_results(
-    not_too_long_random_digits
-):
+def test_empty_search_results(not_too_long_random_digits):
     browser.element('//input[@aria-label="Search with DuckDuckGo"]').should(
         be.blank
     ).type(not_too_long_random_digits).press_enter()
